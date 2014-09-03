@@ -1,4 +1,4 @@
-# browser-launcher2
+# edp-browser-launcher2
 
 Detect the browser versions available on your system and launch them in an
 isolated profile for automated testing purposes.
@@ -6,21 +6,18 @@ isolated profile for automated testing purposes.
 You can launch browsers headlessly (using [Xvfb](http://en.wikipedia.org/wiki/Xvfb) or with [PhantomJS](http://phantomjs.org/)) and set
 the proxy configuration on the fly.
 
-It's a fork of [substack/browser-launcher](https://github.com/substack/browser-launcher) repository which seems to be no longer maintained.
+It's a fork of [benderjs/browser-launcher2](hhttps://github.com/benderjs/browser-launcher2).
 
-## Differences from *browser-launcher*
+## Differences from *browser-launcher2*
 
-- contains fixes and pull requests for unresolved issues reported in original repository
-- `launcher.browsers` is an array of local browsers only, not an object as it was before
-- `launch` callback returns an `Instance` instead of a child process, see API section for more details
-- uses [win-detect-browsers](https://github.com/vweevers/win-detect-browsers) for browser detection on Windows
-- more browsers supported
+- config directory relies on package name
+- change plist.parseFile to plist.parse
 
 ## Supported browsers
 
 The goal for this module is to support all major browsers on every desktop platform.
 
-At the moment, `browser-launcher2` supports following browsers on Windows, Unix and OS X:
+At the moment, `edp-browser-launcher2` supports following browsers on Windows, Unix and OS X:
 
 - Chrome
 - Chromium
@@ -33,14 +30,14 @@ At the moment, `browser-launcher2` supports following browsers on Windows, Unix 
 ## Install
 
 ```
-npm install browser-launcher2
+npm install edp-browser-launcher2
 ```
 
 ## Example
 
 ### Browser launch
 ```js
-var launcher = require( 'browser-launcher2' );
+var launcher = require( 'edp-browser-launcher2' );
 
 launcher( function( err, launch ) {
 	if ( err ) {
@@ -64,7 +61,7 @@ launcher( function( err, launch ) {
 Outputs:
 
 ```
-$ node example/launch.js 
+$ node example/launch.js
 Instance started with PID: 12345
 Instance stopped with exit code: 0
 ```
@@ -82,7 +79,7 @@ launcher.detect( function( available ) {
 Outputs:
 
 ```bash
-$ node example/detect.js 
+$ node example/detect.js
 Available browsers:
 [ { name: 'chrome',
     version: '36.0.1985.125',
@@ -110,7 +107,7 @@ Available browsers:
 ## API
 
 ``` js
-var launcher = require('browser-launcher2');
+var launcher = require('edp-browser-launcher2');
 ```
 
 ### `launcher([configPath], callback)`
