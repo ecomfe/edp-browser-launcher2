@@ -6,7 +6,7 @@ isolated profile for automated testing purposes.
 You can launch browsers headlessly (using [Xvfb](http://en.wikipedia.org/wiki/Xvfb) or with [PhantomJS](http://phantomjs.org/)) and set
 the proxy configuration on the fly.
 
-It's a fork of [benderjs/browser-launcher2](hhttps://github.com/benderjs/browser-launcher2).
+It's a fork of [benderjs/browser-launcher2](https://github.com/benderjs/browser-launcher2).
 
 ## Differences from *browser-launcher2*
 
