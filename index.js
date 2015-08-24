@@ -47,7 +47,14 @@ module.exports = function( configFile, callback ) {
 			runner = run( config, name, version );
 
 		if ( !runner ) {
-			return callback( 'no matches for ' + name + '/' + version );
+			// update the list of available browsers and retry
+			module.exports.update( path.dirname(configFile), function( err, config ) {
+				if ( !( runner = run( config, name, version ) ) ) {
+					return callback( name + ' is not installed in your system.' );
+				}
+
+				runner( uri, options, callback );
+			} );
 		}
 
 		runner( uri, options, callback );
